@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chennai to Ooty Travel Guide</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+        h1 {
+            text-align: center;
+        }
+        #map {
+            height: 500px;
+            width: 100%;
+            margin-bottom: 20px;
+        }
+        .attraction {
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 10px 0;
+            background-color: #fff;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Chennai to Ooty Travel Guide</h1>
+    <div id="map"></div>
+
+    <div class="attraction">
+        <h2>Ooty Lake</h2>
+        <p>Ooty Lake is a popular destination for boating and picnics.</p>
+    </div>
+    <div class="attraction">
+        <h2>Botanical Gardens</h2>
+        <p>Home to a variety of plant species, this garden is perfect for leisurely walks.</p>
+    </div>
+    <div class="attraction">
+        <h2>Doddabetta Peak</h2>
+        <p>The highest peak in the Nilgiris, offering panoramic views of the surrounding area.</p>
+    </div>
+    <div class="attraction">
+        <h2>Rose Garden</h2>
+        <p>This beautiful garden features thousands of varieties of roses.</p>
+    </div>
+
+    <script>
+        function initMap() {
+            var ooty = {lat: 11.4138, lng: 76.6956}; // Ooty coordinates
+            var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 8,
+                center: ooty
+            });
+
+            // Tourist spots
+            var touristSpots = [
+                {lat: 11.4180, lng: 76.6931, name: 'Ooty Lake'},
+                {lat: 11.4082, lng: 76.6938, name: 'Botanical Gardens'},
+                {lat: 11.4085, lng: 76.7114, name: 'Doddabetta Peak'},
+                {lat: 11.4130, lng: 76.7173, name: 'Rose Garden'}
+            ];
+
+            touristSpots.forEach(function(spot) {
+                new google.maps.Marker({
+                    position: {lat: spot.lat, lng: spot.lng},
+                    map: map,
+                    title: spot.name
+                });
+            });
+        }
+    </script>
+    <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap">
+    </script>
+
+</body>
+</html>
